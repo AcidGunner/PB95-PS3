@@ -4,8 +4,11 @@ Welcome to the Source Code for ProgressBar95: PS3 Edition\
 This game was technically announced on [one of my youtube videos](https://www.youtube.com/watch?v=Auv6HFRxjws).
 
 # Implemented features
-- [ ] ProgressBar
-- [ ] Blue and Yellow Segments
+- [X] ProgressBar
+- [X] Blue and Yellow Segments
+- [ ] Red, Pink, Gray and Green Segments
+- [ ] Skin system
+- [ ] Proper User Interface
 
 <a href="https://github.com/AcidGunner/AcidPS3Data">
 	<img src="https://img.shields.io/badge/Powered%20By-AcidPS3%20Store-blue?logo=playstation3" />
