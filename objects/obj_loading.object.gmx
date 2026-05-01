@@ -25,16 +25,26 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_channel_num(10);
-audio_play_sound(snd_intro_95,0,false);
-audio_sound_gain(snd_intro_95,0.35,0);
-randomize();
+            <string>x=room_width/2;
+y=room_height/2;
+image_speed=0;
+image_xscale=2;
+image_yscale=2;
+image_blend=c_white;
+image_alpha=1;
+temp=0;
+
+if global.skin_id == 0 _skin = spr_logo_pb95;
+
+sprite_index=_skin;
+
+alarm[0]=150;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -51,15 +61,13 @@ randomize();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_valign(fa_center);
-draw_set_halign(fa_middle);
-draw_text(room_width/4,room_height/4,"Press Start to Play!");
+            <string>room_goto(rm_main);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="13">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -76,8 +84,13 @@ draw_text(room_width/4,room_height/4,"Press Start to Play!");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(room_width/2,room_height/2,obj_main);
-instance_destroy();
+            <string>draw_self();
+temp+=0.02;
+
+var c1 = make_colour_rgb(0,(210*((sin(temp)*0.5)+0.5)),255);
+var c2 = make_colour_rgb(0,(210*((cos(temp)*0.5)+0.5)),255);
+
+draw_rectangle_colour(0,room_height-20,room_width,room_height,c1,c2,c2,c1,false);
 </string>
           </argument>
         </arguments>

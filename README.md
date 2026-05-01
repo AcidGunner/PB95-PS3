@@ -3,6 +3,9 @@
 Welcome to the Source Code for ProgressBar95: PS3 Edition\
 This game was technically announced on [one of my youtube videos](https://www.youtube.com/watch?v=Auv6HFRxjws).
 
+# Can I try it?
+Yes!
+
 # Documentation
 Please refer to this [Wiki page](https://github.com/AcidGunner/PB95-PS3/wiki) for more information.
 

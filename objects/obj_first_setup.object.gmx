@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,26 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if irandom_range(0,1)==0
-{
-    colour=$7F0000;
-    wobbly=7;
-}
-else
-{
-    colour=$1E93F7;
-    wobbly=1;
-}
-x=irandom_range(20,1260);
-yspd=5+(global.percent/25);
-//wobbly=0;
-temp=0;
+            <string>audio_play_sound(snd_intro_95,0,false);
+audio_sound_gain(snd_intro_95,0.35,0);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -61,37 +49,15 @@ temp=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y+=yspd;
-if y&gt;760 instance_destroy();
-if global.percent=100 instance_destroy();
-
-var wx=obj_main.x;
-var wy=obj_main.y;
-
-//temp+=0.1
-//x+=wobbly*sin(temp);
-
-var pos=14.4*((global.percent-50)/5);
-if point_in_rectangle(x,y,wx+pos,wy-12,wx+144,wy+12)
-{
-    global.percent+=5;
-    ds_list_add(global.progress,colour);
-    if global.percent=100 obj_main.alarm[1]=1;
-    if colour==$1E93F7 audio_play_sound(snd_jump3,1,false)
-    else audio_play_sound(snd_jump1,1,false);
-    instance_destroy();
-}
-else if point_in_rectangle(x,y,wx-144,wy-12,wx+pos,wy+12)
-{
-    audio_play_sound(snd_miss,1,false);
-    instance_destroy();
-};
+            <string>draw_set_valign(fa_center);
+draw_set_halign(fa_middle);
+draw_text(room_width/4,room_height/4,"Press Start to Play!");
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="9" enumb="13">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -108,9 +74,8 @@ else if point_in_rectangle(x,y,wx-144,wy-12,wx+pos,wy+12)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_colour(colour);
-draw_rectangle(x-6,y-12,x+6,y+12,false);
-draw_set_colour(c_white);
+            <string>instance_create(room_width/2,room_height/2,obj_main);
+instance_destroy();
 </string>
           </argument>
         </arguments>

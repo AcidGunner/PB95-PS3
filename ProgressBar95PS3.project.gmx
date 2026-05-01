@@ -7,35 +7,74 @@
     <extension index="0">extensions\GMSched</extension>
   </NewExtensions>
   <sounds name="sound">
-    <sound>sound\snd_jump1</sound>
-    <sound>sound\snd_jump2</sound>
-    <sound>sound\snd_jump3</sound>
-    <sound>sound\snd_jump5</sound>
-    <sound>sound\snd_fanfare</sound>
-    <sound>sound\snd_miss</sound>
-    <sound>sound\snd_intro_95</sound>
-    <sound>sound\snd_outro_95</sound>
+    <sounds name="segments">
+      <sound>sound\snd_jump1</sound>
+      <sound>sound\snd_jump2</sound>
+      <sound>sound\snd_jump3</sound>
+      <sound>sound\snd_jump5</sound>
+      <sound>sound\snd_miss</sound>
+    </sounds>
+    <sounds name="other">
+      <sound>sound\snd_fanfare</sound>
+      <sound>sound\snd_hdd_start</sound>
+    </sounds>
+    <sounds name="skins">
+      <sounds name="pb95">
+        <sound>sound\snd_intro_95</sound>
+        <sound>sound\snd_outro_95</sound>
+      </sounds>
+    </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_test0</sprite>
-    <sprite>sprites\spr_test1</sprite>
-    <sprite>sprites\spr_taskbar</sprite>
-    <sprite>sprites\spr_download</sprite>
+    <sprites name="main stuff">
+      <sprite>sprites\spr_test0</sprite>
+      <sprite>sprites\spr_test1</sprite>
+      <sprite>sprites\spr_taskbar</sprite>
+      <sprite>sprites\spr_download</sprite>
+    </sprites>
+    <sprites name="authorlogos">
+      <sprite>sprites\spr_logo_shs</sprite>
+      <sprite>sprites\spr_logo_icoeye</sprite>
+      <sprite>sprites\spr_logo_acid</sprite>
+    </sprites>
+    <sprites name="skins">
+      <sprites name="pb95">
+        <sprite>sprites\spr_logo_pb95</sprite>
+        <sprite>sprites\spr_start_pb95</sprite>
+      </sprites>
+    </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <backgrounds name="skins">
+      <backgrounds name="pb95">
+        <background>background\bg_load_95</background>
+      </backgrounds>
+    </backgrounds>
+  </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\load_progressbar.gml</script>
+    <script>scripts\game_reset.gml</script>
+    <script>scripts\check_patterns.gml</script>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main</font>
+    <font>fonts\fnt_main_big</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_taskbar</object>
     <object>objects\obj_main</object>
     <object>objects\obj_debug</object>
     <object>objects\obj_segment</object>
-    <object>objects\obj_first</object>
+    <object>objects\obj_first_setup</object>
     <object>objects\obj_input</object>
+    <object>objects\obj_logos</object>
+    <object>objects\obj_loading</object>
+    <object>objects\obj_level_end</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_logo</room>
+    <room>rooms\rm_loading</room>
     <room>rooms\rm_main</room>
   </rooms>
   <help>
