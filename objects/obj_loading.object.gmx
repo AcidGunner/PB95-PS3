@@ -28,17 +28,45 @@
             <string>x=room_width/2;
 y=room_height/2;
 image_speed=0;
-image_xscale=2;
-image_yscale=2;
+image_xscale=1.2;
+image_yscale=1.2;
 image_blend=c_white;
 image_alpha=1;
 temp=0;
 
-if global.skin_id == 0 _skin = spr_logo_pb95;
+if !global.placeholder
+{
+    if global.skin_id == 0
+    {
+        _t = "95";
+        _skin = sprite_add(img_path+"skins/"+_t+"/logo.png",1,false,false,512,256);
+        image_xscale=0.6;
+        image_yscale=0.6;
+    }
+    else
+    {
+        if global.skin_id == 1 _t = "95plus"
+        else if global.skin_id == 2 _t = "98"
+        else if global.skin_id == 3 _t = "M"
+        else if global.skin_id == 4 _t = "2000";
+        
+        _skin = sprite_add(img_path+"skins/"+_t+"/logo.png",1,false,false,256,128);
+    }
+    _bg = background_add(bg_path+"skins/"+_t+"/sky.png",false,false);
+    snd_hdd_start = audio_create_stream(snd_path+"starthdd.ogg");
+}
+else
+{
+    _skin = placeholder_logo;
+    _bg = placeholder_bg;
+    snd_hdd_start = placeholder_snd;
+}
+
+audio_play_sound(snd_hdd_start,0,false);
 
 sprite_index=_skin;
 
-alarm[0]=150;
+alarm[0]=200;
 </string>
           </argument>
         </arguments>
@@ -61,7 +89,14 @@ alarm[0]=150;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_main);
+            <string>sprite_index=-1;
+if !global.placeholder
+{
+    audio_destroy_stream(snd_hdd_start);
+    sprite_delete(_skin);
+    background_delete(_bg);
+}
+room_goto(rm_main);
 </string>
           </argument>
         </arguments>
@@ -84,7 +119,11 @@ alarm[0]=150;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>draw_background_stretched(_bg,0,0,1280,720);
+draw_self();
+
+if global.skin_id&gt;4 exit;
+
 temp+=0.02;
 
 var c1 = make_colour_rgb(0,(210*((sin(temp)*0.5)+0.5)),255);

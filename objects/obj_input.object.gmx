@@ -39,8 +39,6 @@ lef=0;
 rig=0;
 dow=0;
 upp=0;
-a=0;
-b=0;
 m=0;
 m_h=0;
 m_r=0;
@@ -101,8 +99,6 @@ if os_type==os_ps3
     rig=gamepad_button_check_pressed(0,gp_padr) or (stick_h&gt;=gmin &amp;&amp; global.prev_stick_h&lt;gmin);
     dow=gamepad_button_check_pressed(0,gp_padd) or (stick_v&gt;=gmin &amp;&amp; global.prev_stick_v&lt;gmin);
     upp=gamepad_button_check_pressed(0,gp_padu) or (stick_v&lt;=-gmin &amp;&amp; global.prev_stick_v&gt;-gmin);
-    a=gamepad_button_check_pressed(0,gp_face1);
-    b=gamepad_button_check(0,gp_face3);
     m=gamepad_button_check_pressed(0,gp_face1);
     m_h=gamepad_button_check(0,gp_face1);
     m_r=gamepad_button_check_released(0,gp_face1);
@@ -131,8 +127,6 @@ else
     rig=keyboard_check_pressed(ord('D'));
     dow=keyboard_check_pressed(ord('S'));
     upp=keyboard_check_pressed(ord('W'));
-    a=keyboard_check(ord('E'));
-    b=keyboard_check(vk_lshift);
     m=mouse_check_button_pressed(mb_left);
     m_h=mouse_check_button(mb_left);
     m_r=mouse_check_button_released(mb_left);

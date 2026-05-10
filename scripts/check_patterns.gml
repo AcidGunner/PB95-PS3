@@ -1,4 +1,5 @@
 ///check_patterns();
+var _res = "Bravo";
 var _str = "";
 var _b = 0;
 for (var i=0; i<ds_list_size(global.progress); i++)
@@ -12,12 +13,14 @@ for (var i=0; i<ds_list_size(global.progress); i++)
     }
 }
 
-if _b=10 window_set_caption("Yin and yang")
+if _b=10 _res="Yin and yang";
 
-if _str=="BBBBBBBBBBBBBBBBBBBB" window_set_caption("Perfectionist")
-else if _str=="YYYYYYYYYYYYYYYYYYYY" window_set_caption("Nonconformist")
-else if _str=="BBBBBBBBBBBBBBBBBBBY" window_set_caption("95%")
-else if _str=="YYYYYYYYYYYYYYYYYYYB" window_set_caption("5%")
-else if _str=="BBBBBBBBYBYBYBYBYBYB" or _str=="YYYYYYYYBYBYBYBYBYBY" window_set_caption("Morse")
-else if _str=="BBBBBYBBBBYYYYBYYYYY" or _str=="YYYYYBYYYYBBBBYBBBBB" window_set_caption("Harmonic perfection")
-else if _str=="BYBYBYBYBYBYBYBYBYBY" or _str=="YBYBYBYBYBYBYBYBYBYB" window_set_caption("Zebra")
+if _str=="BBBBBBBBBBBBBBBBBBBB" _res="Perfectionist"
+else if _str=="YYYYYYYYYYYYYYYYYYYY" _res="Nonconformist"
+else if _str=="BBBBBBBBBBBBBBBBBBBY" _res="95%"
+else if _str=="YYYYYYYYYYYYYYYYYYYB" _res="5%"
+else if _str=="BBBBBBBBYBYBYBYBYBYB" or _str=="YYYYYYYYBYBYBYBYBYBY" _res="Morse"
+else if _str=="BBBBBYBBBBYYYYBYYYYY" or _str=="YYYYYBYYYYBBBBYBBBBB" _res="Harmonic perfection"
+else if _str=="BYBYBYBYBYBYBYBYBYBY" or _str=="YBYBYBYBYBYBYBYBYBYB" _res="Zebra";
+
+return _res+"!";
